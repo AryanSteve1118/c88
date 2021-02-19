@@ -10,6 +10,7 @@ export default class RecieverDetailsScreen extends Component{
     super(props);
     this.state={
         userId          : firebase.auth().currentUser.email,
+        userName:'',
         receiverId      : this.props.navigation.getParam('details')["username"],
         exchangeId       : this.props.navigation.getParam('details')["exchangeId"],
         barterName        : this.props.navigation.getParam('details')["item_name"],
@@ -41,7 +42,7 @@ getRecieverDetails(){
       this.setState({recieverRequestDocId:doc.id})
    })
 })}
-/*
+
 getUserDetails=(userId)=>{
   db.collection("users").where('email_id','==', userId).get()
   .then((snapshot)=>{
@@ -52,7 +53,7 @@ getUserDetails=(userId)=>{
     })
   })
 }
-*/
+
 updateBarterStatus=()=>{
   db.collection('all_donations').add({
     barter_name         : this.state.barterName,
@@ -67,21 +68,22 @@ updateBarterStatus=()=>{
 
 componentDidMount(){
   this.getRecieverDetails()
+  this.getUserDetails(this.state.userId)
 }
-/*
+
 addNotification = ()=>{
   var message = this.state.userName+" has shown interest donating the book"
   db.collection("all_notifications").add({
     "targeted_user_id":this.state.recieverId,
     "donor_id":this.state.userId,
     "request_id":this.state.requestId,
-    "barter_name":this.state.bookName,
+    "barter_name":this.state.barterName,
     "date":firebase.firestore.FieldValue.serverTimestamp(),
     "notification_status":"unread",
     "message":message
   })
 }
-*/
+
   render(){
     return(
       <View style={styles.container}>
