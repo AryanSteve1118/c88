@@ -16,7 +16,8 @@ export default class WelcomeScreen extends Component {
       lastName : "",
       mobileNumber:"",
       address : "",
-      confirmPassword : ""
+      confirmPassword : "",
+      IsExchangeRequestActive:false
     }
   }
 
@@ -169,6 +170,7 @@ export default class WelcomeScreen extends Component {
   )
 
 
+  
   render(){
     return(
       <View style={styles.container}>
