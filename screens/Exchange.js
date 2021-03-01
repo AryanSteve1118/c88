@@ -155,9 +155,20 @@ export default class Exchange extends Component{
         })
       })
     })
-  
-  
+   } 
+   
+  getData(){
+    fetch("http ://data.fixer.io/api/latest?access_key=240eb99baed7d3b5043a5f8286522a08")
+    .then(response=>{
+      return response.json()
+    }).then(responseData=>{
+      var currencyCode = this.state.currencyCode
+      var currency = responseData.rates.INR
+      var value = 69/currency
+      console.log(value)
+    })
   }
+  
   render(){
 
     if(this.state.IsExchangeRequestActive === true){
