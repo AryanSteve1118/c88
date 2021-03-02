@@ -5,6 +5,8 @@ import firebase from 'firebase';
 import MyHeader from '../components/MyHeader';
 //import SwipeableFlatlist from '../components/SwipeableFlatList';
 import db from '../config';
+import { RFValue } from "react-native-responsive-fontsize";
+
 
 export default class NotificationScreen extends Component{
   constructor(props) {
@@ -70,7 +72,7 @@ export default class NotificationScreen extends Component{
             this.state.allNotifications.length === 0
             ?(
               <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-                <Text style={{fontSize:25}}>You have no notifications</Text>
+                <Text style={{fontSize:RFValue(25)}}>You have no notifications</Text>
               </View>
             )
             :(

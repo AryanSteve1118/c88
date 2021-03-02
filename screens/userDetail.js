@@ -4,6 +4,8 @@ import{Card,Header,Icon} from 'react-native-elements';
 import firebase from 'firebase';
 
 import db from '../config.js';
+import { RFValue } from "react-native-responsive-fontsize";
+
 
 export default class RecieverDetailsScreen extends Component{
   constructor(props){
@@ -90,14 +92,14 @@ addNotification = ()=>{
         <View style={{flex:0.1}}>
           <Header
             leftComponent ={<Icon name='arrow-left' type='feather' color='#696969'  onPress={() => this.props.navigation.goBack()}/>}
-            centerComponent={{ text:"Exchange Barters", style: { color: '#90A5A9', fontSize:20,fontWeight:"bold", } }}
+            centerComponent={{ text:"Exchange Barters", style: { color: '#90A5A9', fontSize:RFValue(20),fontWeight:"bold", } }}
             backgroundColor = "#eaf8fe"
           />
         </View>
         <View style={{flex:0.3}}>
           <Card
               title={"Barter Information"}
-              titleStyle= {{fontSize : 20}}
+              titleStyle= {{fontSize :RFValue(20)}}
             >
             <Card >
               <Text style={{fontWeight:'bold'}}>Name : {this.state.bookName}</Text>
@@ -110,7 +112,7 @@ addNotification = ()=>{
         <View style={{flex:0.3}}>
           <Card
             title={"Reciever Information"}
-            titleStyle= {{fontSize : 20}}
+            titleStyle= {{fontSize : RFValue(20)}}
             >
             <Card>
               <Text style={{fontWeight:'bold'}}>Name: {this.state.recieverName}</Text>

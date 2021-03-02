@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, FlatList,TouchableOpacity } from 'react-native';
-import { ListItem } from 'react-native-elements'
+import { ListItem,Input } from 'react-native-elements'
 import MyHeader from '../components/MyHeader';
+import { RFValue } from "react-native-responsive-fontsize";
 
 import db from '../config'
 
@@ -61,8 +62,8 @@ export default class HomeScreen extends Component{
           {
             this.state.allRequests.length === 0
             ?(
-              <View style={{flex:1, fontSize: 20, justifyContent:'center', alignItems:'center'}}>
-                <Text style={{ fontSize: 20}}>List of all Barter</Text>
+              <View style={{flex:1, fontSize: RFValue(20), justifyContent:'center', alignItems:'center'}}>
+                <Text style={{ fontSize: RFValue(20)}}>List of all Barter</Text>
               </View>
             )
             :(

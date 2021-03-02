@@ -4,6 +4,7 @@ import { ListItem } from 'react-native-elements'
 import firebase from 'firebase';
 import db from '../config'
 import MyHeader from '../components/MyHeader';
+import { RFValue } from "react-native-responsive-fontsize";
 
 export default class MyReceivedItemsScreen extends Component{
   constructor(){
@@ -59,7 +60,7 @@ export default class MyReceivedItemsScreen extends Component{
             this.state.receivedItemsList.length === 0
             ?(
               <View style={styles.subContainer}>
-                <Text style={{ fontSize: 20}}>List Of All Received Books</Text>
+                <Text style={{ fontSize: RFValue(20)}}>List Of All Received Books</Text>
               </View>
             )
             :(
@@ -79,7 +80,7 @@ export default class MyReceivedItemsScreen extends Component{
 const styles = StyleSheet.create({
   subContainer:{
     flex:1,
-    fontSize: 20,
+    fontSize: RFValue(20),
     justifyContent:'center',
     alignItems:'center'
   },

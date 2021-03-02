@@ -3,6 +3,7 @@ import {View,Text, KeyboardAvoidingView,TextInput,StyleSheet,ScrollView,Touchabl
 import MyHeader from '../components/MyHeader'
 import db from '../config'
 import firebase from 'firebase'
+import {Input} from 'react-native-elements'
 
 export default class SettingScreen extends Component{
   constructor(){
@@ -61,7 +62,7 @@ componentDidMount(){
               <View style={{flex:1, alignItems: 'center',justifyContent: 'center'}} >
                 <MyHeader title="Settings"/>
                 <View style={{flex:1,width:'100%',alignItems: 'center'}}>
-                <TextInput
+                <Input
                   style={styles.formTextInput}
                   placeholder ={"First Name"}
                   maxLength ={8}
@@ -72,7 +73,7 @@ componentDidMount(){
                   }}
                   value ={this.state.firstName}
                 />
-                <TextInput
+                <Input
                   style={styles.formTextInput}
                   placeholder ={"Last Name"}
                   maxLength ={8}
@@ -83,7 +84,7 @@ componentDidMount(){
                   }}
                     value ={this.state.lastName}
                 />
-                <TextInput
+                <Input
                   style={styles.formTextInput}
                   placeholder ={"Contact"}
                   maxLength ={10}
@@ -95,7 +96,7 @@ componentDidMount(){
                   }}
                     value ={this.state.contact}
                 />
-                <TextInput
+                <Input
                   style={styles.formTextInput}
                   placeholder ={"Address"}
                   multiline = {true}
@@ -106,7 +107,7 @@ componentDidMount(){
                   }}
                     value ={this.state.address}
                 />
-                <TextInput
+                <Input
                   style={styles.formTextInput}
                   placeholder ={"Email"}
                   keyboardType ={'email-address'}

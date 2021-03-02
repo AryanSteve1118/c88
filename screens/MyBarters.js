@@ -4,6 +4,7 @@ import {Card,Icon,ListItem} from 'react-native-elements'
 import MyHeader from '../components/MyHeader.js'
 import firebase from 'firebase';
 import db from '../config.js'
+import { RFValue } from "react-native-responsive-fontsize";
 
 export default class MyBarterScreen extends Component {
   static navigationOptions = { header: null };
@@ -118,7 +119,7 @@ export default class MyBarterScreen extends Component {
              this.state.allDonations.length === 0
              ?(
                <View style={styles.subtitle}>
-                 <Text style={{ fontSize: 20}}>List of all Barters</Text>
+                 <Text style={{ fontSize: RFValue(20)}}>List of all Barters</Text>
                </View>
              )
              :(
@@ -152,7 +153,7 @@ const styles = StyleSheet.create({
   },
   subtitle :{
     flex:1,
-    fontSize: 20,
+    fontSize:RFValue(20),
     justifyContent:'center',
     alignItems:'center'
   }

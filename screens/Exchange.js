@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, TextInput,KeyboardAvoidingView,TouchableOpacity
 import firebase from 'firebase';
 import db from '../config';
 import MyHeader from '../components/MyHeader'
-
+import {Input} from 'react-native-elements'
 export default class Exchange extends Component{
 
   constructor(){
@@ -207,8 +207,8 @@ export default class Exchange extends Component{
 
           <ScrollView>
             <KeyboardAvoidingView style={styles.keyBoardStyle}>
-              <TextInput
-                style ={styles.formTextInput}
+              <Input
+                style ={styles.formInput}
                 placeholder={"enter item name"}
                 onChangeText={(text)=>{
                     this.setState({
@@ -217,8 +217,8 @@ export default class Exchange extends Component{
                 }}
                 value={this.state.itemName}
               />
-              <TextInput
-                style ={[styles.formTextInput,{height:300}]}
+              <Input
+                style ={[styles.formInput,{height:300}]}
                 multiline
                 numberOfLines ={8}
                 placeholder={"Why do you need the book"}
@@ -247,7 +247,7 @@ export default class Exchange extends Component{
 
 
 const styles = StyleSheet.create({
-  formTextInput:{
+  formInput:{
     width:"75%",
     height:35,
     alignSelf:'center',

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, Image, TouchableOpacity,TextInput, Alert, Modal,ScrollView,KeyboardAvoidingView } from 'react-native';
-import BarterAnimation from '../components/BarterAnimationScreen.js';
 
 import db from '../config';
 import firebase from 'firebase';
+import {Input} from 'react-native-elements'
+import { RFValue } from "react-native-responsive-fontsize";
 
 export default class WelcomeScreen extends Component {
   constructor(){
@@ -75,10 +76,10 @@ export default class WelcomeScreen extends Component {
         <ScrollView style={{width:'100%'}}>
           <KeyboardAvoidingView style={{flex:1,justifyContent:'center', alignItems:'center'}}>
           <Text
-            style={{justifyContent:'center', alignSelf:'center', fontSize:30,color:'#ff5722',margin:50}}
+            style={{justifyContent:'center', alignSelf:'center', fontSize:RFValue(30),color:'#ff5722',margin:50}}
             >Registration</Text>
-          <TextInput
-            style={styles.formTextInput}
+          <Input
+            style={styles.formInput}
             placeholder ={"First Name"}
             maxLength ={8}
             onChangeText={(text)=>{
@@ -87,8 +88,8 @@ export default class WelcomeScreen extends Component {
               })
             }}
           />
-          <TextInput
-            style={styles.formTextInput}
+          <Input
+            style={styles.formInput}
             placeholder ={"Last Name"}
             maxLength ={8}
             onChangeText={(text)=>{
@@ -97,8 +98,8 @@ export default class WelcomeScreen extends Component {
               })
             }}
           />
-          <TextInput
-            style={styles.formTextInput}
+          <Input
+            style={styles.formInput}
             placeholder ={"Mobile Number"}
             maxLength ={10}
             keyboardType={'numeric'}
@@ -108,8 +109,8 @@ export default class WelcomeScreen extends Component {
               })
             }}
           />
-          <TextInput
-            style={styles.formTextInput}
+          <Input
+            style={styles.formInput}
             placeholder ={"Address"}
             multiline = {true}
             onChangeText={(text)=>{
@@ -118,8 +119,8 @@ export default class WelcomeScreen extends Component {
               })
             }}
           />
-           <TextInput
-            style={styles.formTextInput}
+           <Input
+            style={styles.formInput}
             placeholder ={"Country Currency Code"}
             maxLength ={8}
             onChangeText={(text)=>{
@@ -128,8 +129,8 @@ export default class WelcomeScreen extends Component {
               })
             }}
           />
-          <TextInput
-            style={styles.formTextInput}
+          <Input
+            style={styles.formInput}
             placeholder ={"Username"}
             keyboardType ={'email-address'}
             onChangeText={(text)=>{
@@ -137,8 +138,8 @@ export default class WelcomeScreen extends Component {
                 username: text
               })
             }}
-          /><TextInput
-            style={styles.formTextInput}
+          /><Input
+            style={styles.formInput}
             placeholder ={"Password"}
             secureTextEntry = {true}
             onChangeText={(text)=>{
@@ -146,8 +147,8 @@ export default class WelcomeScreen extends Component {
                 password: text
               })
             }}
-          /><TextInput
-            style={styles.formTextInput}
+          /><Input
+            style={styles.formInput}
             placeholder ={"Confrim Password"}
             secureTextEntry = {true}
             onChangeText={(text)=>{
@@ -197,9 +198,9 @@ export default class WelcomeScreen extends Component {
           <Text style={{color:'#ff8a65'}}> A Trading Method </Text>
         </View>
         <View style={styles.buttonContainer}>
-          <Text style={{color:'#ff5722', fontSize:18, fontWeight:'bold',marginLeft:55}}>USERNAME</Text>
+          <Text style={{color:'#ff5722', fontSize:RFValue(18), fontWeight:'bold',marginLeft:55}}>USERNAME</Text>
           <View style={{alignItems:'center'}}>
-            <TextInput
+            <Input
             style={styles.loginBox}
             keyboardType ={'email-address'}
             onChangeText={(text)=>{
@@ -209,9 +210,9 @@ export default class WelcomeScreen extends Component {
             }}
             />
           </View>
-          <Text style={{color:'#ff5722', fontSize:18, fontWeight:'bold',marginLeft:55}}>PASSWORD</Text>
+          <Text style={{color:'#ff5722', fontSize:RFValue(18), fontWeight:'bold',marginLeft:55}}>PASSWORD</Text>
           <View style={{alignItems:'center'}}>
-            <TextInput
+            <Input
               style={styles.loginBox}
               secureTextEntry = {true}
               onChangeText={(text)=>{
@@ -226,7 +227,7 @@ export default class WelcomeScreen extends Component {
               style={[styles.button,{marginBottom:10}]}
               onPress = {()=>{this.userLogin(this.state.username, this.state.password)}}
               >
-              <Text style={{color:'#ff5722', fontSize:18, fontWeight:'bold'}}>LOGIN</Text>
+              <Text style={{color:'#ff5722', fontSize:RFValue(18), fontWeight:'bold'}}>LOGIN</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button}
@@ -234,7 +235,7 @@ export default class WelcomeScreen extends Component {
                 this.setState({"isVisible":true})
               }}
               >
-                <Text style={{color:'#ff5722', fontSize:18, fontWeight:'bold'}}>SIGN UP</Text>
+                <Text style={{color:'#ff5722', fontSize:RFValue(18), fontWeight:'bold'}}>SIGN UP</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -245,83 +246,120 @@ export default class WelcomeScreen extends Component {
 
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    backgroundColor:'#ffe0b2'
+  container: {
+    flex: 1,
+    backgroundColor: "#6fc0b8"
   },
-  profileContainer:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center',
+  loginBox: {
+    width: "80%",
+    height: RFValue(50),
+    borderWidth: 1.5,
+    borderColor: "#ffffff",
+    fontSize: RFValue(20),
+    paddingLeft: RFValue(10)
   },
-  title :{
-    fontSize:60,
-    fontWeight:'300',
-    // fontFamily:'AvenirNext-Heavy',
-    color : '#ff9800'
+  button: {
+    width: "80%",
+    height: RFValue(50),
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: RFValue(25),
+    backgroundColor: "#ffff",
+    shadowColor: "#000",
+    marginBottom: RFValue(10),
+    shadowOffset: {
+      width: 0,
+      height: 8
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 10.32,
+    elevation: 16
   },
-  loginBox:{
-    width: 300,
-    height: 35,
-    borderBottomWidth: 1.5,
-    borderColor:'#ffab91',
-    fontSize: 20,
-    marginBottom:20,
-    marginTop:5
+  buttonText: {
+    color: "#32867d",
+    fontWeight: "200",
+    fontSize: RFValue(20)
+  },
+  label: {
+    fontSize: RFValue(13),
+    color: "#717D7E",
+    fontWeight: "bold",
+    paddingLeft: RFValue(10),
+    marginLeft: RFValue(20)
+  },
+  formInput: {
+    width: "90%",
+    height: RFValue(45),
+    padding: RFValue(10),
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: "grey",
+    paddingBottom: RFValue(10),
+    marginLeft: RFValue(20),
+    marginBottom: RFValue(14)
+  },
+  registerButton: {
+    width: "75%",
+    height: RFValue(50),
+    marginTop: RFValue(20),
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: RFValue(3),
+    backgroundColor: "#32867d",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 8
+    },
+    shadowOpacity: 0.44,
+    shadowRadius: 10.32,
+    elevation: 16,
+    marginTop: RFValue(10)
+  },
+  registerButtonText: {
+    fontSize: RFValue(23),
+    fontWeight: "bold",
+    color: "#fff"
+  },
+  cancelButtonText: {
+    fontSize: RFValue(20),
+    fontWeight: "bold",
+    color: "#32867d",
+    marginTop: RFValue(10)
+  },
+  scrollview: {
+    flex: 1,
+    backgroundColor: "#fff"
+  },
+  signupView: {
+    flex: 0.05,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  signupText: {
+    fontSize: RFValue(20),
+    fontWeight: "bold",
+    color: "#32867d"
+  },
+  santaView: {
+    flex: 0.85,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: RFValue(10)
+  },
+  santaImage: {
+    width: "70%",
+    height: "100%",
+    resizeMode: "stretch"
+  },
+  TextInput: {
+    flex: 0.5,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  bookImage: {
+    width: "100%",
+    height: RFValue(220)
+  }
+});
 
-  },
-  button:{
-    width:"75%",
-    height:50,
-    justifyContent:'center',
-    alignItems:'center',
-    borderRadius:25,
-    backgroundColor:"#ffff",
-    elevation:10
-  },
-  buttonContainer:{
-    flex:1,
-  },
-  modalContainer:{
-    flex:1,
-    borderRadius:20,
-    justifyContent:'center',
-    alignItems:'center',
-    backgroundColor:"#ffff",
-    marginRight:30,
-    marginLeft : 30,
-    marginTop:80,
-    marginBottom:80,
-  },
-  formTextInput:{
-    width:"75%",
-    height:35,
-    alignSelf:'center',
-    borderColor:'#ffab91',
-    borderRadius:10,
-    borderWidth:1,
-    marginTop:20,
-    padding:10
-  },
-  registerButton:{
-    width:200,
-    height:40,
-    alignItems:'center',
-    justifyContent:'center',
-    borderWidth:1,
-    borderRadius:10,
-    marginTop:30
-  },
-  registerButtonText:{
-    color:'#ff5722',
-    fontSize:15,
-    fontWeight:'bold'
-  },
-  cancelButton:{
-    width:200,
-    height:30,
-    justifyContent:'center',
-    alignItems:'center',
-    marginTop:5,
-  },
-})
